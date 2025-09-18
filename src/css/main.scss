@@ -1,1 +1,16 @@
 /* Your SCSS here. */
+.slide {
+    animation-name: slide-around;
+    animation-duration: 5s;
+    animation-iteration-count: 5;
+    animation-direction: alternate;
+}
+
+@keyframes slide-around {
+    from {
+        margin-left: 0%;
+    }
+    to {
+        margin-left: 50%;
+    }
+}

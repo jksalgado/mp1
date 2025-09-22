@@ -6,11 +6,7 @@ You just have to incorporate that feature in some form.
 
 
 finished:
-1, 5, 2, 3
-
-4. Navbar Resizing: Navigation bar must be larger when users are at the top of the page. 
-As users start scrolling down, it should resize and become smaller. Note that the text 
-font size should also start larger and become smaller as users scroll down - Example
+1, 5, 2, 3, 4
 
 6. Carousel: A section with a carousel/slider using a minimum of three slides. It should include the 
 navigation arrows on the side - Example

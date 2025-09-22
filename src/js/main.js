@@ -32,3 +32,26 @@ window.addEventListener("scroll", () => {
     nav.classList.remove("shrink");
   }
 });
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const carousel = document.getElementById('simpleCarousel');
+  if (!carousel) return;
+  const track = carousel.querySelector('.track');
+  const slides = carousel.querySelectorAll('.slide');
+  const prev = carousel.querySelector('.car-btn.prev');
+  const next = carousel.querySelector('.car-btn.next');
+  let idx = 0;
+
+  function show(i) {
+    idx = (i + slides.length) % slides.length;
+    track.style.transform = `translateX(${-100 * idx}%)`;
+  }
+
+  prev.addEventListener('click', () => show(idx - 1));
+  next.addEventListener('click', () => show(idx + 1));
+
+  // keep layout correct on resize (optional)
+  window.addEventListener('resize', () => show(idx));
+  show(0);
+});

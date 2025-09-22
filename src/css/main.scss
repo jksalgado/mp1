@@ -71,16 +71,74 @@ li {
 
 header {
     top: 0;
-    background-color: purple;
+    background-color: rgb(230, 185, 232);
     color: white;
     z-index: 1000;
     width: 100%;
+    text-align: center;
+    font-size: 50px;
 }
 
-.intro {
+.carousel {
     background-color: gray;
     width: 100%;
 }
+
+.simple-carousel {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    position:relative;
+    max-width:800px;
+    margin:16px auto;
+}
+
+.track-wrap {
+    overflow:hidden;
+    flex:1 1 auto;
+}
+
+.track {
+    display:flex;
+    transition:
+    transform 300ms ease;
+    width:100%;
+}
+
+.slide {
+    min-width:100%;
+    box-sizing:border-box;
+    padding:8px;
+    display:flex;
+    justify-content:center;
+    max-height: auto;
+}
+
+.slide img {
+    width:100%;
+    max-height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.car-btn {
+    background:#fff;
+    border:none;
+    font-size:28px;
+    width:44px;
+    height:44px;
+    border-radius:6px;
+    cursor:pointer;
+    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+}
+
+@media (max-width:600px) {
+  .car-btn { font-size:22px; width:38px; height:38px; position:absolute; top:50%; transform:translateY(-50%); z-index:10; }
+  .car-btn.prev { left:8px; }
+  .car-btn.next { right:8px; }
+}
+
 
 .middle {
     background-color: aqua;
@@ -96,20 +154,4 @@ footer {
     background: pink;
     width: 100%;
 
-}
-
-.slide {
-    animation-name: slide-around;
-    animation-duration: 5s;
-    animation-iteration-count: 5;
-    animation-direction: alternate;
-}
-
-@keyframes slide-around {
-    from {
-        margin-left: 0%;
-    }
-    to {
-        margin-left: 50%;
-    }
 }

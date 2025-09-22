@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MP1</title>
     </head>
+
     <body>
         <div class="navbar">
             <h1 class="title">Jasmin Salgado Portfolio</h1>
@@ -17,20 +18,33 @@
         </div>
 
         <header>
-            <h2>This is Jasmin Salgado. You might be asking, who is that? Well...</h2>         
+            <h2>Welcome to my portfolio.</h2>      
+            <p>My name is Jasmin Salgado</p>
+            <p>I am a senior studying Computer Science at <br> the University of Illinois at Urbana-Champaign</p>
         </header>
 
-        <section id="intro">
-            <h1>Hello World! Welcome to MP1!</h1>
-            <img src="assets/image.jpg" class="slide">
+        <section id="carousel">
+            <div class="simple-carousel" id="simpleCarousel">
+                <button class="car-btn prev"><</button>
+
+                <div class="track-wrap">
+                    <div class="track">
+                        <img src="assets/headshot.png" class="slide" alt="Slide 1">
+                        <img src="assets/meincanada.jpeg" class="slide" alt="Slide 2">
+                        <img src="assets/meandsisters.jpeg" class="slide" alt="Slide 3">
+                    </div>
+                </div>
+
+                <button class="car-btn next">></button>
+            </div>
         </section>
 
         <section id="middle">
-            <img src="assets/image.jpg" class="slide">            
+            <!-- <img src="" class="slide">             -->
         </section>
 
         <section id="end">
-            <img src="assets/image.jpg" class="slide">            
+            <!-- <img src="" class="slide">             -->
         </section>
 
         <footer>
@@ -38,4 +52,5 @@
         </footer>
 
     </body>
+
 </html>

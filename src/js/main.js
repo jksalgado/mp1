@@ -24,3 +24,11 @@ window.addEventListener("scroll", () => {
   }
 });
 
+window.addEventListener("scroll", () => {
+  const nav = document.querySelector(".navbar");
+  if (window.scrollY > 50) {
+    nav.classList.add("shrink");
+  } else {
+    nav.classList.remove("shrink");
+  }
+});

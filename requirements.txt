@@ -6,10 +6,7 @@ You just have to incorporate that feature in some form.
 
 
 finished:
-1, 5, 2, 3, 4
-
-6. Carousel: A section with a carousel/slider using a minimum of three slides. It should include the 
-navigation arrows on the side - Example
+1, 5, 2, 3, 4, 6
 
 7. Multi-column layout: A section with Multi-column content - Example
 

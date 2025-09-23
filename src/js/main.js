@@ -35,23 +35,31 @@ window.addEventListener("scroll", () => {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.getElementById('simpleCarousel');
+  const carousel = document.querySelector('.carousel');
   if (!carousel) return;
-  const track = carousel.querySelector('.track');
-  const slides = carousel.querySelectorAll('.slide');
-  const prev = carousel.querySelector('.car-btn.prev');
-  const next = carousel.querySelector('.car-btn.next');
+
+  const slides = carousel.querySelector('.slides');
+  const imgs = slides.querySelectorAll('img');
+  const prev = carousel.querySelector('.btn.prev');
+  const next = carousel.querySelector('.btn.next');
   let idx = 0;
 
+  imgs.forEach(img => {
+    img.style.flex = '0 0 100%';
+  });
+
   function show(i) {
-    idx = (i + slides.length) % slides.length;
-    track.style.transform = `translateX(${-100 * idx}%)`;
+    idx = (i + imgs.length) % imgs.length;
+    slides.style.transform = `translateX(-${idx * 100}%)`;
   }
 
   prev.addEventListener('click', () => show(idx - 1));
   next.addEventListener('click', () => show(idx + 1));
 
-  // keep layout correct on resize (optional)
-  window.addEventListener('resize', () => show(idx));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') show(idx - 1);
+    if (e.key === 'ArrowRight') show(idx + 1);
+  });
+
   show(0);
 });

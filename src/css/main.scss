@@ -18,6 +18,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 18px 28px;
+    margin: 0;
     transition: padding 220ms ease, background-color 220ms ease;
 }
 
@@ -75,69 +76,84 @@ header {
     color: white;
     z-index: 1000;
     width: 100%;
+    height: fit-content;
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
+    padding: 8px;
 }
 
+.des {
+    font-size: 26px;
+}
+
+#carousel {
+    height:fit-content;
+}
 .carousel {
-    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    max-width: 400px;
+    margin: 20px auto;
+    position: relative;
+    max-height: 400px;
+    top: 0;
+}
+
+.pics {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin: 24px;
+}
+
+.window {
+    overflow: hidden;
     width: 100%;
+    flex: 1 1 auto;
+    border-radius: 12px;
 }
 
-.simple-carousel {
-    display:flex;
-    align-items:center;
-    gap:12px;
-    position:relative;
-    max-width:800px;
-    margin:16px auto;
-}
-
-.track-wrap {
-    overflow:hidden;
-    flex:1 1 auto;
-}
-
-.track {
-    display:flex;
-    transition:
-    transform 300ms ease;
-    width:100%;
+.slides {
+    display: flex;
+    transition: transform 0.3s ease;
 }
 
 .slide {
-    min-width:100%;
-    box-sizing:border-box;
-    padding:8px;
-    display:flex;
-    justify-content:center;
-    max-height: auto;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
 }
 
 .slide img {
-    width:100%;
-    max-height: auto;
-    object-fit: cover;
-    border-radius: 8px;
     display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
-.car-btn {
-    background:#fff;
-    border:none;
-    font-size:28px;
-    width:44px;
-    height:44px;
-    border-radius:6px;
-    cursor:pointer;
-    box-shadow:0 6px 18px rgba(0,0,0,0.12);
+.btn {
+    background: #fff;
+    border: none;
+    font-size: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-@media (max-width:600px) {
-  .car-btn { font-size:22px; width:38px; height:38px; position:absolute; top:50%; transform:translateY(-50%); z-index:10; }
-  .car-btn.prev { left:8px; }
-  .car-btn.next { right:8px; }
+@media (max-width: 600px) {
+    .slide img { max-height: 40vh; }
+    .btn { font-size: 22px; width: 36px; height: 36px; }
 }
+
 
 
 .middle {

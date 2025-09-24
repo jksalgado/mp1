@@ -1,6 +1,13 @@
 /* Your SCSS here. */
 html { scroll-behavior: smooth; }
-* { box-sizing: border-box; }
+* { 
+    box-sizing: border-box; 
+}
+
+section {
+    padding: 40px 20px;
+}
+
 
 body {
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -68,6 +75,22 @@ body {
 li {
     margin: 0;
     padding: 0;
+}
+
+#video-section {
+    position: relative;
+    width: 100%;
+    min-height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-image: url('../assets/illinois.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #h {
@@ -166,7 +189,7 @@ li {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    padding: 24px;
+    padding: 40px 20px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -181,7 +204,7 @@ li {
     text-align: center;
     height: 220px;
     padding: 12px;
-    box-sizing: border-box;
+    margin: 0;
 }
 
 .cards h2 {
@@ -205,12 +228,41 @@ h1 {
     text-align: center;
 }
 
-.end {
+#end {
     width: 100%;
+    margin: 0;
+    padding: 40px;
+    text-align: center;
 }
 
-.contact {
-    column-count: 2;
+#end h1 {
+    margin-top: 0px;
+}
+
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.contact-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.contact-links a img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    border-radius: 12px;
 }
 
 .foot {
@@ -236,9 +288,8 @@ h1 {
 }
 
 
-/* Modal styling */
 .modal {
-    display: none; /* hidden by default */
+    display: none;
     position: fixed; 
     z-index: 2000; 
     left: 0;

@@ -6,10 +6,7 @@ You just have to incorporate that feature in some form.
 
 
 finished:
-1, 5, 2, 3, 4, 6, 7, 8, 9, 11
-
-10. Background Image: A section which uses a fixed-position background image - Example
-
+1, 5, 2, 3, 4, 6, 7, 8, 9, 11, 10
 
 12. Video: Embedded video using HTML5 video tag - Example
 

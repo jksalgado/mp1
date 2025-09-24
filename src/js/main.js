@@ -1,4 +1,4 @@
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.navbar');
     const links = Array.from(document.querySelectorAll('.navbar a'));
     const targets = links.map(l => {
@@ -95,7 +95,6 @@
 
 
 
-// Modal logic for Experiences cards
 const cards = document.querySelectorAll(".cards");
 const modal = document.getElementById("experienceModal");
 const modalTitle = document.getElementById("modalTitle");
@@ -120,7 +119,6 @@ closeBtn.addEventListener("click", () => {
     modal.style.display = "none";
 });
 
-// Close modal if clicking outside the content
 window.addEventListener("click", e => {
     if (e.target === modal) {
         modal.style.display = "none";

@@ -19,7 +19,7 @@ body {
     align-items: center;
     padding: 18px 28px;
     margin: 0;
-    transition: padding 220ms ease, background-color 220ms ease;
+    transition: all 0.3s ease;
 }
 
 .title {
@@ -70,14 +70,14 @@ li {
     padding: 0;
 }
 
-header {
-    top: 0;
-    background-color: rgb(230, 185, 232);
-    color: white;
-    z-index: 1000;
-    width: 100%;
-    height: fit-content;
+#h {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
     text-align: center;
+    color: white;
     font-size: 40px;
     padding: 8px;
 }
@@ -86,9 +86,10 @@ header {
     font-size: 26px;
 }
 
-#carousel {
+#carouselarea {
     height:fit-content;
 }
+
 .carousel {
     display: flex;
     align-items: center;
@@ -155,19 +156,77 @@ header {
 }
 
 
-
-.middle {
-    background-color: aqua;
+#middle {
     width: 100%;
+    padding: 20px 60px;
+
+}
+
+.experiences {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    background-color: rgb(224, 155, 221);
+    text-align: center;
+    height: 220px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.cards h2 {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    text-align: center;
+}
+
+.expimg {
+  height: 60px;
+  width: 60px;
+  object-fit: contain;
+  margin-bottom: 8px;
+}
+
+h1 {
+    text-align: center;
 }
 
 .end {
-    background-color: blue;
     width: 100%;
-
 }
+
+.contact {
+    column-count: 2;
+}
+
 footer {
     background: pink;
     width: 100%;
+    bottom: 0;
 
+}
+
+
+.stripe1 {
+    background-color: rgb(230, 185, 232);
+    justify-content: center;
+}
+
+.stripe2 {
+    background-color: rgb(252, 238, 253);
+    justify-content: center;
 }

@@ -1,65 +1,94 @@
-/* Your JS here. */
+    document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.navbar');
+    const links = Array.from(document.querySelectorAll('.navbar a'));
+    const targets = links.map(l => {
+        const id = (l.getAttribute('href') || '').replace('#', '') || l.dataset.target;
+        return id ? document.getElementById(id) : null;
+    });
 
-window.addEventListener("scroll", () => {
-  const scrollY = window.scrollY || window.pageYOffset;
-  const nav = document.querySelector(".navbar");
-  const navBottomY = (nav.getBoundingClientRect().bottom + window.scrollY);
-
-  const sections = document.querySelectorAll("section");
-  sections.forEach((sec, i) => {
-    const topY = sec.getBoundingClientRect().top + window.scrollY;
-    const bottomY = topY + sec.offsetHeight;
-    const link = document.querySelector(`.navbar a[href="#${sec.id}"]`);
-    if (!link) return;
-    if (navBottomY >= topY + 1 && navBottomY < bottomY - 1) {
-      link.classList.add("active");
-    } else {
-      link.classList.remove("active");
+    function handleShrink() {
+        if (!nav) return;
+        if (window.scrollY > 50) nav.classList.add('shrink');
+        else nav.classList.remove('shrink');
     }
-  });
 
-  if ((window.innerHeight + scrollY) >= (document.documentElement.scrollHeight - 1)) {
-    const allLinks = Array.from(document.querySelectorAll(".navbar a"));
-    allLinks.forEach((l, idx) => l.classList.toggle("active", idx === allLinks.length - 1));
-  }
-});
+    function highlightMostVisibleSection() {
+        if (links.length === 0) return;
 
-window.addEventListener("scroll", () => {
-  const nav = document.querySelector(".navbar");
-  if (window.scrollY > 50) {
-    nav.classList.add("shrink");
-  } else {
-    nav.classList.remove("shrink");
-  }
-});
+        const viewportTop = window.scrollY;
+        const viewportBottom = viewportTop + window.innerHeight;
 
+        let bestIndex = -1;
+        let bestRatio = 0;
 
-document.addEventListener('DOMContentLoaded', () => {
-  const carousel = document.querySelector('.carousel');
-  if (!carousel) return;
+        for (let i = 0; i < targets.length; i++) {
+        const el = targets[i];
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        const top = rect.top + window.scrollY;
+        const bottom = rect.bottom + window.scrollY;
+        const height = bottom - top;
+        if (height <= 0) continue;
 
-  const slides = carousel.querySelector('.slides');
-  const imgs = slides.querySelectorAll('img');
-  const prev = carousel.querySelector('.btn.prev');
-  const next = carousel.querySelector('.btn.next');
-  let idx = 0;
+        const overlap = Math.max(0, Math.min(bottom, viewportBottom) - Math.max(top, viewportTop));
+        const ratio = overlap / height;
 
-  imgs.forEach(img => {
-    img.style.flex = '0 0 100%';
-  });
+        if (ratio > bestRatio) {
+            bestRatio = ratio;
+            bestIndex = i;
+        }
+        }
 
-  function show(i) {
-    idx = (i + imgs.length) % imgs.length;
-    slides.style.transform = `translateX(-${idx * 100}%)`;
-  }
+        if ((window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 1)) {
+        bestIndex = links.length - 1;
+        }
 
-  prev.addEventListener('click', () => show(idx - 1));
-  next.addEventListener('click', () => show(idx + 1));
+        if (bestIndex === -1) bestIndex = 0; // fallback
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowLeft') show(idx - 1);
-    if (e.key === 'ArrowRight') show(idx + 1);
-  });
+        links.forEach((l, i) => l.classList.toggle('active', i === bestIndex));
+    }
 
-  show(0);
+    let ticking = false;
+    function onScrollOrResize() {
+        if (!ticking) {
+        window.requestAnimationFrame(() => {
+            handleShrink();
+            highlightMostVisibleSection();
+            ticking = false;
+        });
+        ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScrollOrResize, { passive: true });
+    window.addEventListener('resize', onScrollOrResize);
+    window.addEventListener('load', onScrollOrResize);
+    onScrollOrResize();
+
+    const carousel = document.querySelector('.carousel');
+    if (carousel) {
+        const slidesTrack = carousel.querySelector('.slides');
+        const slideEls = Array.from(carousel.querySelectorAll('.slide'));
+        const prevBtn = carousel.querySelector('.btn.prev');
+        const nextBtn = carousel.querySelector('.btn.next');
+        let idx = 0;
+
+        slideEls.forEach(el => el.style.flex = '0 0 100%');
+
+        function show(i) {
+        idx = (i + slideEls.length) % slideEls.length;
+        slidesTrack.style.transform = `translateX(-${idx * 100}%)`;
+        }
+
+        prevBtn?.addEventListener('click', () => show(idx - 1));
+        nextBtn?.addEventListener('click', () => show(idx + 1));
+
+        document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') show(idx - 1);
+        if (e.key === 'ArrowRight') show(idx + 1);
+        });
+
+        window.addEventListener('resize', () => show(idx));
+        show(0);
+    }
 });

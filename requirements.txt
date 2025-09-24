@@ -6,19 +6,7 @@ You just have to incorporate that feature in some form.
 
 
 finished:
-1, 5, 2, 3, 4, 6
-
-7. Multi-column layout: A section with Multi-column content - Example
-
-8. Centering: Content in each horizontal stripe/section must be horizontally centered. 
-At least one element on the page must be vertically centered. The vertically-centered 
-element should remain centered even if the dimensions of its outer element changes.
-
-9. Responsiveness: Your webpage should look good when resized to the following resolutions:
-    - 1920x1080
-    - 1366x768
-    - 1280x720
-    - 1024x768
+1, 5, 2, 3, 4, 6, 7, 8, 9
 
 10. Background Image: A section which uses a fixed-position background image - Example
 

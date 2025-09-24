@@ -92,3 +92,37 @@
         show(0);
     }
 });
+
+
+
+// Modal logic for Experiences cards
+const cards = document.querySelectorAll(".cards");
+const modal = document.getElementById("experienceModal");
+const modalTitle = document.getElementById("modalTitle");
+const modalImg = document.getElementById("modalImg");
+const modalDesc = document.getElementById("modalDesc");
+const modalDates = document.getElementById("modalDates");
+const modalTech = document.getElementById("modalTech");
+const closeBtn = modal.querySelector(".close");
+
+cards.forEach(card => {
+    card.addEventListener("click", () => {
+        modalTitle.textContent = card.dataset.title;
+        modalDesc.textContent = card.dataset.desc;
+        modalDates.textContent = card.dataset.dates;
+        modalTech.textContent = card.dataset.tech;
+        modalImg.src = card.dataset.img;
+        modal.style.display = "block";
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close modal if clicking outside the content
+window.addEventListener("click", e => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});

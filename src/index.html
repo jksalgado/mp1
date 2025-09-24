@@ -43,7 +43,7 @@
 
 
 
-        <section id="middle" class="stripe1">
+        <!-- <section id="middle" class="stripe1">
             <h1>my experiences</h1>
             <div class="experiences">
                 <div class="cards">
@@ -62,7 +62,47 @@
                     <p>EOH Programmer</p>                    
                 </div>
             </div>
+        </section> -->
+
+
+        <section id="middle" class="stripe1">
+            <h1>my experiences</h1>
+            <div class="experiences">
+                <div class="cards" 
+                    data-title="Microsoft" 
+                    data-desc="SWE Intern & Explore Intern" 
+                    data-dates="Summer 2025, Summer 2024"
+                    data-tech="C++, XAML, Figma"
+                    data-img="assets/microsoft.png">
+                    <h2>Microsoft</h2>
+                    <img class="expimg" src="assets/microsoft.png" alt="Microsoft Logo">
+                    <p>SWE Intern <br> Explore Intern</p>                    
+                </div>
+
+                <div class="cards" 
+                    data-title="B[U]ILT UIUC Tech Team" 
+                    data-desc="EOH Frontend Developer & UI/UX Designer"
+                    data-dates="Spring 2024 - Present"
+                    data-tech="React.js, Figma"
+                    data-img="assets/built-logo.png">
+                    <h2>B[U]ILT UIUC Tech Team</h2>
+                    <img class="expimg" src="assets/built-logo.png" alt="Built Logo">
+                    <p>EOH Frontend Developer <br> UI/UX Designer</p>                    
+                </div>
+
+                <div class="cards" 
+                    data-title="SHPE UIUC Tech Team" 
+                    data-desc="EOH Programmer"
+                    data-dates="Fall 2023 - Spring 2024"
+                    data-tech="Python, C++"
+                    data-img="assets/shpe logo.png">
+                    <h2>SHPE UIUC Tech Team</h2>
+                    <img class="expimg" src="assets/shpe logo.png" alt="SHPE Logo">
+                    <p>EOH Programmer</p>                    
+                </div>
+            </div>
         </section>
+
 
         <section id="end" class="stripe2">
             <h1>contact me</h1>
@@ -80,6 +120,17 @@
         <footer class="stripe1">
             <p>The Jasmin Salgado Project 2025</p>
         </footer>
+
+        <div id="experienceModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <img id="modalImg" src="assets/shpe logo.png" alt="Experience Image">
+                <p id="modalDesc"></p>
+                <p id="modalDates"></p>
+                <p id="modalTech"></p>
+            </div>
+        </div>
 
     </body>
 
